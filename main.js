@@ -2,7 +2,7 @@
 
 const readlineSync = require('readline-sync');
 const {mainMenu} = require('./mainMenu')
-const {createCustomer} = require('./createCustomer')
+const {createCustomer, listCustomers} = require('./createCustomer')
 let shopping = true
 
 do {
@@ -16,6 +16,7 @@ do {
         break;
       case "2":
         console.log("case 2")
+        listCustomers()
         break;
       case "3":
         console.log("case 3")
