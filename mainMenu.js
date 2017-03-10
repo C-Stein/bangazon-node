@@ -13,6 +13,8 @@ const mainMenu = function(){
       menu += "\n  7. Leave Bangazon!"
       menu += "\n  >"
   console.log(menu)
+
+  
 }
 
 // console.log("mainMenu from menu", mainMenu)
