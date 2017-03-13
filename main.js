@@ -1,13 +1,23 @@
 #!/usr/bin/env node
 
-const readlineSync = require('readline-sync');
+//const readlineSync = require('readline-sync');
+const readline = require('readline')
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 const {mainMenu} = require('./mainMenu')
 const {createCustomer, listCustomers} = require('./createCustomer')
 let shopping = true
 
-do {
+//do {
 
-  var selection = readlineSync.question(mainMenu());
+  //var selection //= readlineSync.question(mainMenu());
+  mainMenu()
+  rl.on('line', (input) => {
+  console.log(`Received: ${input}`);
+  let selection  = input
+  rl.close();
 
     switch (selection) {
       case "1":
@@ -37,5 +47,6 @@ do {
 
     }
   console.log("end")
+});
 
-} while(shopping)
+//} while(shopping)
