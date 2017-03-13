@@ -27,6 +27,7 @@ let listCustomers = () => {
   console.log("finding customers")
   db.all(`SELECT name FROM customers`, (err, rows) => {
     console.log(rows)
+    console.log ("error", err)
   })
   require("./closeDB")
 }
