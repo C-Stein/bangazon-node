@@ -13,12 +13,18 @@ let shopping = true
 //do {
 
   //var selection //= readlineSync.question(mainMenu());
-  mainMenu()
-  rl.on('line', (input) => {
-  console.log(`Received: ${input}`);
-  let selection  = input
-  rl.close();
+  let menuSelection = new Promise ((resolve, reject) => {
+    mainMenu()
+    rl.on('line', (input) => {
+    console.log(`Received: ${input}`);
+    resolve(input)
+    rl.close();
+    })
+  })
 
+menuSelection.then((input) => {
+
+  let selection = input
     switch (selection) {
       case "1":
         console.log("case 1")
@@ -46,7 +52,8 @@ let shopping = true
         break;
 
     }
+})
   console.log("end")
-});
+
 
 //} while(shopping)
