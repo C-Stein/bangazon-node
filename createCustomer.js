@@ -17,6 +17,7 @@ let createCustomer = () => {
   let query = `INSERT INTO customers VALUES (null, "${name}", "${address}", "${city}", "${state}", "${zipcode}", "${phoneNumber}")`
   console.log("query", query)
   db.run(query, (err) => {
+    console.log("insert run!")
     console.log("ERR:", err)
   })
 
@@ -26,8 +27,12 @@ let createCustomer = () => {
 let listCustomers = () => {
   console.log("finding customers")
   db.all(`SELECT name FROM customers`, (err, rows) => {
-    console.log(rows)
-    console.log ("error", err)
+    for (var i = 0; i < rows.length; i++) {
+      console.log(`${i + 1}. ${rows[i].name}`)
+    }
+    if (err) {
+      console.log ("error listing customers", err)
+    }
   })
   require("./closeDB")
 }
