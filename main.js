@@ -13,22 +13,20 @@ let shopping = true
 //do {
 
   //var selection //= readlineSync.question(mainMenu());
-  let menuSelection = new Promise ((resolve, reject) => {
+
     mainMenu()
+    rl.prompt()
     rl.on('line', (input) => {
     console.log(`Received: ${input}`);
-    resolve(input)
-    rl.close();
-    })
-  })
 
-menuSelection.then((input) => {
+    
 
   let selection = input
+        rl.close();
     switch (selection) {
       case "1":
         console.log("case 1")
-        createCustomer()
+        createCustomer().then((val) => {console.log("then", val)})
         break;
       case "2":
         console.log("case 2")
@@ -50,10 +48,10 @@ menuSelection.then((input) => {
         console.log("case 7")
         shopping = false
         break;
-
     }
-})
+
   console.log("end")
 
-
+//rl.close();
+  })
 //} while(shopping)
