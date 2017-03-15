@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/C-Stein/bangazon-node#readme",
   "dependencies": {
+    "prompt": "^1.0.0",
     "readline-sync": "^1.4.6",
     "sqlite3": "^3.1.8"
   }
