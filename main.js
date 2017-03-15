@@ -3,9 +3,8 @@
 const readlineSync = require('readline-sync');
 const {mainMenu} = require('./mainMenu')
 const {createCustomer, listCustomers} = require('./createCustomer')
-let shopping = true
 
-do {
+let shopping = () => {
 
   var selection = readlineSync.question(mainMenu());
 
@@ -17,6 +16,7 @@ do {
       case "2":
         console.log("case 2")
         listCustomers()
+        shopping()
         break;
       case "3":
         console.log("case 3")
@@ -32,10 +32,11 @@ do {
         break;
       case "7":
         console.log("case 7")
-        shopping = false
         break;
 
     }
-  console.log("end")
+  console.log("end of switch")
 
-} while(shopping)
+}
+
+shopping()
