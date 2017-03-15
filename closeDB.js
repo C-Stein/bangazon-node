@@ -10,5 +10,5 @@ const errorHandler = (err) => {
 
 module.exports = db.close(err => {
   errorHandler(err); // Use custom error handling function
-  console.log('Database closed'); // Will only log on successful close
+  //console.log('Database closed'); // Will only log on successful close
 })
