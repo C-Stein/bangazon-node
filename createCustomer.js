@@ -33,8 +33,8 @@ let listCustomers = () => {
     if (err) {
       console.log ("error listing customers", err)
     }
+    require("./closeDB")
   })
-  require("./closeDB")
 }
 
 module.exports = { createCustomer, listCustomers }
